@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
-import { Outlet, ScrollRestoration } from 'react-router'
+import { Outlet, ScrollRestoration, useNavigate } from 'react-router'
 import Header from '../components/Header'
 import LatestNews from '../components/LatestNews'
 import Navbar from '../components/Navbar'
 import LeftAside from '../components/homelayout/LeftAside'
 import RightAside from '../components/homelayout/RightAside'
 import { FaArrowUp } from "react-icons/fa";
+import Loading from '../components/Loading'
 
 const HomeLayout = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const {state} = useNavigate()
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -40,13 +42,13 @@ const HomeLayout = () => {
         </header>
 
         <main className='w-11/12 mx-auto my-3 grid grid-cols-12 gap-20'>
-            <aside className='col-span-3'>
+            <aside className='col-span-3 sticky top-2 h-fit'>
                 <LeftAside></LeftAside>
             </aside>
             <section className='col-span-6'>
-                <Outlet></Outlet>
+                {state=="loading"?<Loading></Loading>:<Outlet></Outlet>}
             </section>
-            <aside className='col-span-3'>
+            <aside className='col-span-3 sticky top-2 h-fit'>
                 <RightAside></RightAside>
             </aside>
         </main>
