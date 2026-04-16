@@ -20,13 +20,11 @@ const Login = () => {
 
     signUser(email,password)
     .then(res=>{
-        console.log(res.user)
         if(!res.user.emailVerified){
             alert('Please verify your email address')
             return
         }
         // setUser(res.user)
-        console.log('checking',location.state)
         navigate(location.state || '/')
     })
     .catch(error=>setError(error.message))

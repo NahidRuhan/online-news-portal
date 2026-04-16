@@ -32,7 +32,6 @@ const Register = () => {
 
     createUser(email,password)
     .then(res=>{
-      // console.log(res.user)
       setSuccess(true)
       e.target.reset()
       const profile = {
@@ -41,7 +40,7 @@ const Register = () => {
       }
       updateProfile(res.user,profile)
       sendEmailVerification(res.user).then(()=>alert('Please verify your email address'))
-      navigate('/')
+      navigate('/auth/login')
     })
     .catch(error => setError(error.message))
 

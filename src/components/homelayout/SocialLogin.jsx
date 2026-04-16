@@ -8,22 +8,13 @@ const SocialLogin = () => {
   const {signInWithGoogle,signInWithGithub} = use(AuthContext)
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle().then((res) => {
-        console.log(res.user);
-        // setUser(res.user);
-        // navigate(location.state || '/')
-      })
-      .catch((error) => console.log(error));
+    signInWithGoogle()
+    .then().catch((error) => console.log(error));
 
   }
   const handleGithubSignIn = () => {
-    signInWithGithub().then((res) => {
-        console.log(res.user);
-        // setUser(res.user);
-        // navigate(location.state || '/')
-      })
-      .catch((error) => console.log(error));
-
+    signInWithGithub()
+    .then().catch((error) => console.log(error));
   }
   return (
     <div>

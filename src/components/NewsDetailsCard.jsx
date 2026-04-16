@@ -1,14 +1,11 @@
 import { Link, useLoaderData, useParams } from "react-router";
 
 const NewsDetailsCard = () => {
-  //   console.log(news);
       const {newsId} = useParams()
-      console.log(newsId)
     const data = useLoaderData()
     
     const news = data.find(news=>news.id === newsId)
     
-    console.log("meo meo",news)
   return (
     <div className="space-y-5">
       <img
